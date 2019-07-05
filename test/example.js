@@ -15,8 +15,8 @@ http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.
 
 // mozjpeg default -quality 50 (Smaller file, more heavily compressed.)
 http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.jpg')
-    .on('response', function (resp) {
-      resp
-        .pipe(mozjpeg({ quality: 50 }))
-        .pipe(fs.createWriteStream('flying-pug.q50.jpg'))
-    })
+  .on('response', function (resp) {
+    resp
+      .pipe(mozjpeg({ quality: 50 }))
+      .pipe(fs.createWriteStream('flying-pug.q50.jpg'))
+  })
