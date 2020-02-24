@@ -18,7 +18,7 @@ test('Does it blend?', function (t) {
 test('Will it compress further?', function (t) {
   t.plan(1)
   fs.createReadStream(path.join(__dirname, 'flying-pug.jpg'))
-    .pipe(mozjpeg({quality: 50}))
+    .pipe(mozjpeg({ quality: 50 }))
     .pipe(concat(function (actual) {
       var expected = fs.readFileSync(path.join(__dirname, 'flying-pug.q50.jpg'))
       t.ok(bufferEqual(actual, expected), 'The Buffers! Do they match at this lo lo quality?')
@@ -28,7 +28,7 @@ test('Will it compress further?', function (t) {
 test('Can it args?', function (t) {
   t.plan(1)
   fs.createReadStream(path.join(__dirname, 'flying-pug.jpg'))
-    .pipe(mozjpeg({quality: 50, args: '-baseline'}))
+    .pipe(mozjpeg({ quality: 50, args: '-baseline' }))
     .pipe(concat(function (actual) {
       var expected = fs.readFileSync(path.join(__dirname, 'flying-pug.q50.baseline.jpg'))
       t.ok(bufferEqual(actual, expected), 'The Buffers! Do they match with baseline quality?')
